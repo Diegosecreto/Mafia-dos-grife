@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Loja | Minimalist & Dark</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS (ESTILO MINIMALISTA) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+            padding-bottom: 60px;
+        }
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        /* CABEÇALHO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #1A1A1A;
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* BANNER PRINCIPAL */
+        .hero {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #1A1A1A;
+            background: linear-gradient(180deg, #111 0%, #0A0A0A 100%);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            letter-spacing: 8px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 12px;
+            color: #666;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        /* VITRINE DE PRODUTOS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .grid-produtos {
+            display: grid;
+            /* 2 colunas no mobile por padrão, expande em telas maiores */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px;
+        }
+
+        .card-produto {
+            background-color: #111111;
+            border: 1px solid #1A1A1A;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .card-produto:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        .prod-img {
+            width: 100%;
+            aspect-ratio: 3/4; /* Proporção ideal para foto de roupa */
+            background-color: #1A1A1A;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .prod-info {
+            margin-bottom: 15px;
+        }
+
+        .prod-nome {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .prod-preco {
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFF;
+        }
+
+        /* BOTÃO DE COMPRAR */
+        .btn-comprar {
+            width: 100%;
+            background-color: #FFFFFF;
+            color: #000000;
+            border: 1px solid #FFFFFF;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-comprar:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        .btn-comprar:active {
+            background-color: #222;
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 11px;
+            color: #444;
+            border-top: 1px solid #1A1A1A;
+            letter-spacing: 2px;
+        }
+
+        /* MEDIA QUERIES PARA COMPUTADORES */
+        @media (min-width: 768px) {
+            .grid-produtos {
+                grid-template-columns: repeat(4, 1fr); /* 4 colunas em telas grandes */
+            }
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SuaMarca</div>
+        <div class="cart-icon">🛒</div>
+    </header>
+
+    <section class="hero">
+        <h1>Drop I</h1>
+        <p>ESSENCIAL & MINIMALISTA</p>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">// PRODUTOS DISPONÍVEIS</h2>
+        
+        <div class="grid-produtos">
+            
+            <div class="card-produto">
+                <img class="prod-img" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=600" alt="Camiseta Oversized">
+                <div class="prod-info">
+                    <p class="prod-nome">Camiseta Oversized</p>
+                    <p class="prod-preco">R$ 89,90</p>
+                </div>
+                <button class="btn-comprar" onclick="comprar('Camiseta Oversized')">Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img class="prod-img" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80&w=600" alt="Moletom Street Black">
+                <div class="prod-info">
+                    <p class="prod-nome">Moletom Street Black</p>
+                    <p class="prod-preco">R$ 159,90</p>
+                </div>
+                <button class="btn-comprar" onclick="comprar('Moletom Street Black')">Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img class="prod-img" src="https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=600" alt="Boné Minimalist">
+                <div class="prod-info">
+                    <p class="prod-nome">Boné Minimalist</p>
+                    <p class="prod-preco">R$ 69,90</p>
+                </div>
+                <button class="btn-comprar" onclick="comprar('Boné Minimalist')">Comprar</button>
+            </div>
+
+            <div class="card-produto">
+                <img class="prod-img" src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&q=80&w=600" alt="Calça Cargo Black">
+                <div class="prod-info">
+                    <p class="prod-nome">Calça Cargo Black</p>
+                    <p class="prod-preco">R$ 189,90</p>
+                </div>
+                <button class="btn-comprar" onclick="comprar('Calça Cargo Black')">Comprar</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 SUAMARCA. FEITO PARA DURAR.
+    </footer>
+
+    <script>
+        function comprar(nomeProduto) {
+            // Insira o seu número com o código do país e DDD (Ex: 55 para Brasil + DDD + Número)
+            const seuNumero = "5511999999999"; 
+            const mensagem = encodeURIComponent(`Olá! Gostei da *${nomeProduto}* no site e gostaria de fechar o pedido.`);
+            const urlWhatsapp = `https://wa.me/${seuNumero}?text=${mensagem}`;
+            
+            window.open(urlWhatsapp, '_blank');
+        }
+    </script>
+</body>
+</html>
